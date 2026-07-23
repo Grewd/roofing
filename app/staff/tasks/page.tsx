@@ -4,54 +4,8 @@ import DynamicSidebar from '@/components/dynamic-sidebar'
 import { RouteGuard } from '@/components/route-guard'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { CheckCircle, Clock, MapPin } from 'lucide-react'
-
-const STAFF_TASKS = [
-  {
-    id: 1,
-    title: 'Roof Installation - Block A',
-    project: 'Karen Residential Complex',
-    location: 'Karen, Nairobi',
-    status: 'In Progress',
-    priority: 'High',
-    dueDate: '2024-05-25',
-    assignedTo: 'James Otieno',
-    progress: 70
-  },
-  {
-    id: 2,
-    title: 'Material Quality Inspection',
-    project: 'Karen Residential Complex',
-    location: 'Karen, Nairobi',
-    status: 'Completed',
-    priority: 'Medium',
-    dueDate: '2024-05-15',
-    assignedTo: 'Sarah Osei',
-    progress: 100
-  },
-  {
-    id: 3,
-    title: 'Site Safety Audit',
-    project: 'Westlands Office Building',
-    location: 'Westlands, Nairobi',
-    status: 'Pending',
-    priority: 'High',
-    dueDate: '2024-05-20',
-    assignedTo: 'Mary Njoki',
-    progress: 0
-  },
-  {
-    id: 4,
-    title: 'Roof Installation - Block B',
-    project: 'Karen Residential Complex',
-    location: 'Karen, Nairobi',
-    status: 'In Progress',
-    priority: 'High',
-    dueDate: '2024-06-05',
-    assignedTo: 'James Otieno',
-    progress: 45
-  },
-]
+import { CheckCircle, MapPin } from 'lucide-react'
+import { STAFF_TASKS } from '@/lib/mock-data'
 
 const getStatusBadge = (status: string) => {
   const variants: Record<string, 'default' | 'secondary' | 'destructive' | 'outline'> = {

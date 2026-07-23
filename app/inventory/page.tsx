@@ -2,20 +2,10 @@
 
 import DynamicSidebar from '@/components/dynamic-sidebar'
 import { RouteGuard } from '@/components/route-guard'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { AlertTriangle, TrendingDown, TrendingUp } from 'lucide-react'
-
-const INVENTORY = [
-  { id: 1, name: 'Cambridge Shingles', quantity: 12, unit: 'bundles', threshold: 20, status: 'Low', supplier: 'CertainTeed', lastRestocked: '2024-04-15', cost: 'KES 850/bundle', trend: -15 },
-  { id: 2, name: 'Stone-Coated Tiles', quantity: 8, unit: 'boxes', threshold: 15, status: 'Low', supplier: 'Decra', lastRestocked: '2024-04-10', cost: 'KES 2,400/box', trend: -20 },
-  { id: 3, name: 'Corrugated Sheets', quantity: 5, unit: 'pieces', threshold: 10, status: 'Low', supplier: 'Local Steel', lastRestocked: '2024-04-20', cost: 'KES 2,700/piece', trend: -25 },
-  { id: 4, name: 'Roofing Nails', quantity: 50, unit: 'kg', threshold: 25, status: 'Adequate', supplier: 'Industrial Fasteners', lastRestocked: '2024-05-01', cost: 'KES 180/kg', trend: 5 },
-  { id: 5, name: 'Flashing Materials', quantity: 30, unit: 'meters', threshold: 20, status: 'Adequate', supplier: 'Industrial Group', lastRestocked: '2024-04-28', cost: 'KES 450/meter', trend: 8 },
-  { id: 6, name: 'Underlayment', quantity: 45, unit: 'rolls', threshold: 30, status: 'Adequate', supplier: 'Synthetics Ltd', lastRestocked: '2024-05-03', cost: 'KES 3,600/roll', trend: 10 },
-  { id: 7, name: 'Roof Sealant', quantity: 15, unit: 'drums', threshold: 10, status: 'Adequate', supplier: 'Sika', lastRestocked: '2024-04-25', cost: 'KES 8,500/drum', trend: 0 },
-  { id: 8, name: 'Asphalt Shingles', quantity: 22, unit: 'bundles', threshold: 25, status: 'Low', supplier: 'GAF', lastRestocked: '2024-04-18', cost: 'KES 950/bundle', trend: -18 },
-]
+import { INVENTORY } from '@/lib/mock-data'
 
 const getTrendIcon = (trend: number) => {
   if (trend > 0) return <TrendingUp className="w-4 h-4 text-green-600" />

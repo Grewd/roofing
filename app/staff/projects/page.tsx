@@ -2,15 +2,15 @@
 
 import DynamicSidebar from '@/components/dynamic-sidebar'
 import { RouteGuard } from '@/components/route-guard'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { MapPin, Users, Calendar } from 'lucide-react'
+import { MapPin, Calendar } from 'lucide-react'
+import { PROJECTS } from '@/lib/mock-data'
 
-const ASSIGNED_PROJECTS = [
-  { id: 1, name: 'Karen Residential Complex', location: 'Karen', client: 'Apex Developments', role: 'Lead Technician', startDate: '2024-01-15', deadline: '2024-08-30', progress: 65 },
-  { id: 2, name: 'Westlands Office Building', location: 'Westlands', client: 'Tech Hub Ltd', role: 'Support Technician', startDate: '2024-02-20', deadline: '2024-09-15', progress: 45 },
-  { id: 3, name: 'Runda Villa Upgrade', location: 'Runda', client: 'Private Owner', role: 'Lead Technician', startDate: '2024-03-10', deadline: '2024-07-20', progress: 80 },
-]
+const ASSIGNED_PROJECTS = PROJECTS.filter((_, i) => [0, 1, 4].includes(i)).map((p, i) => ({
+  ...p,
+  role: i === 0 ? 'Lead Technician' : i === 1 ? 'Support Technician' : 'Lead Technician',
+}))
 
 export default function StaffProjectsPage() {
   return (
@@ -44,7 +44,7 @@ export default function StaffProjectsPage() {
                       </div>
                       <div className="flex items-center gap-2 text-sm">
                         <Calendar className="w-4 h-4 text-muted-foreground" />
-                        <span className="text-foreground">Deadline: {project.deadline}</span>
+                        <span className="text-foreground">Deadline: {project.endDate}</span>
                       </div>
                       <div>
                         <p className="text-xs text-muted-foreground">Progress</p>

@@ -4,29 +4,9 @@ import DynamicSidebar from '@/components/dynamic-sidebar'
 import { RouteGuard } from '@/components/route-guard'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { DollarSign, FolderOpen, AlertCircle, TrendingUp } from 'lucide-react'
-
-const CLIENT_PROJECTS = [
-  { id: 1, name: 'Main Office Building Roof', location: 'Nairobi', status: 'In Progress', progress: 65, budget: 'KES 2.5M', spent: 'KES 1.6M' },
-  { id: 2, name: 'Warehouse Extension', location: 'Nairobi', status: 'Pending', progress: 0, budget: 'KES 1.2M', spent: 'KES 0.2M' },
-  { id: 3, name: 'Previous Facility Upgrade', location: 'Karen', status: 'Completed', progress: 100, budget: 'KES 800K', spent: 'KES 800K' },
-]
-
-const INVOICES = [
-  { id: 1, projectName: 'Main Office Building Roof', amount: 'KES 800,000', date: '2024-05-10', status: 'Paid', dueDate: 'May 31, 2024' },
-  { id: 2, projectName: 'Main Office Building Roof', amount: 'KES 600,000', date: '2024-04-10', status: 'Paid', dueDate: 'Apr 30, 2024' },
-  { id: 3, projectName: 'Warehouse Extension', amount: 'KES 200,000', date: '2024-05-01', status: 'Pending', dueDate: 'May 31, 2024' },
-]
-
-const PAYMENT_CHART = [
-  { month: 'January', amount: 0 },
-  { month: 'February', amount: 0 },
-  { month: 'March', amount: 0 },
-  { month: 'April', amount: 600000 },
-  { month: 'May', amount: 800000 },
-  { month: 'June', amount: 400000 },
-]
+import { CLIENT_PROJECTS, INVOICES, PAYMENT_CHART } from '@/lib/mock-data'
 
 export default function ClientDashboard() {
   const totalSpent = INVOICES.filter(i => i.status === 'Paid').reduce((sum, i) => {
@@ -182,7 +162,7 @@ export default function ClientDashboard() {
                   <div key={invoice.id} className="flex items-start justify-between text-sm border-b border-border pb-3 last:border-0">
                     <div>
                       <p className="font-medium text-foreground">{invoice.amount}</p>
-                      <p className="text-xs text-muted-foreground">{invoice.projectName}</p>
+                      <p className="text-xs text-muted-foreground">{invoice.project}</p>
                       <p className="text-xs text-muted-foreground mt-1">Due: {invoice.dueDate}</p>
                     </div>
                     <Badge variant={invoice.status === 'Paid' ? 'default' : 'outline'} className="text-xs">

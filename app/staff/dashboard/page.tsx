@@ -5,28 +5,8 @@ import { RouteGuard } from '@/components/route-guard'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import { CheckCircle, Clock, AlertCircle, MapPin, User, Calendar } from 'lucide-react'
-
-const STAFF_TASKS = [
-  { id: 1, title: 'Daily Site Inspection - Karen Project', project: 'Karen Residential Complex', dueDate: '2024-05-15', priority: 'High', status: 'In Progress' },
-  { id: 2, title: 'Material Quality Check', project: 'Westlands Office Building', dueDate: '2024-05-16', priority: 'Medium', status: 'Pending' },
-  { id: 3, title: 'Safety Compliance Report', project: 'Kisumu Shopping Center', dueDate: '2024-05-17', priority: 'High', status: 'Pending' },
-  { id: 4, title: 'Equipment Maintenance', project: 'General', dueDate: '2024-05-18', priority: 'Low', status: 'Pending' },
-  { id: 5, title: 'Team Briefing Preparation', project: 'General', dueDate: '2024-05-20', priority: 'Medium', status: 'Pending' },
-]
-
-const ASSIGNED_PROJECTS = [
-  { id: 1, name: 'Karen Residential Complex', location: 'Karen', role: 'Lead Technician', progress: 65, team: ['Paul', 'Michael'] },
-  { id: 2, name: 'Westlands Office Building', location: 'Westlands', role: 'Safety Officer', progress: 45, team: ['Mary', 'Sarah'] },
-]
-
-const SCHEDULE = [
-  { date: '2024-05-15', status: 'Working', location: 'Karen' },
-  { date: '2024-05-16', status: 'Working', location: 'Westlands' },
-  { date: '2024-05-17', status: 'Working', location: 'Kisumu' },
-  { date: '2024-05-18', status: 'Day Off', location: 'N/A' },
-  { date: '2024-05-19', status: 'Working', location: 'Karen' },
-]
+import { CheckCircle, Clock, AlertCircle, MapPin, Calendar } from 'lucide-react'
+import { STAFF_TASKS, ASSIGNED_PROJECTS, WEEKLY_SCHEDULE } from '@/lib/mock-data'
 
 export default function StaffDashboard() {
   const completedTasks = STAFF_TASKS.filter(t => t.status === 'Completed').length
@@ -123,7 +103,7 @@ export default function StaffDashboard() {
                   <CardTitle>My Tasks</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
-                  {STAFF_TASKS.map((task) => (
+                  {STAFF_TASKS.slice(0, 5).map((task) => (
                     <div key={task.id} className="flex items-start gap-4 p-4 border border-border rounded-lg hover:bg-muted/50 transition-colors">
                       <div className="mt-1">
                         {getStatusIcon(task.status)}
@@ -194,7 +174,7 @@ export default function StaffDashboard() {
                   <CardTitle className="text-lg">This Week Schedule</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-2">
-                  {SCHEDULE.map((item, idx) => (
+                  {WEEKLY_SCHEDULE.map((item, idx) => (
                     <div key={idx} className="flex items-center justify-between p-2 rounded-lg hover:bg-muted transition-colors">
                       <div>
                         <p className="text-sm font-medium text-foreground">{item.date}</p>

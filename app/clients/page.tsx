@@ -2,19 +2,11 @@
 
 import DynamicSidebar from '@/components/dynamic-sidebar'
 import { RouteGuard } from '@/components/route-guard'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import { Mail, Phone, MapPin, Briefcase } from 'lucide-react'
-
-const CLIENTS = [
-  { id: 1, name: 'Apex Developments', type: 'Corporate', email: 'info@apex.ke', phone: '+254 20 2000 100', location: 'Karen, Nairobi', activeProjects: 2, totalValue: 'KES 5.7M', rating: 4.8 },
-  { id: 2, name: 'Tech Hub Ltd', type: 'Corporate', email: 'projects@techhub.ke', phone: '+254 20 3500 200', location: 'Westlands, Nairobi', activeProjects: 1, totalValue: 'KES 3.2M', rating: 4.6 },
-  { id: 3, name: 'Retail Group Kenya', type: 'Corporate', email: 'procurement@retail.ke', phone: '+254 57 2028 000', location: 'Kisumu', activeProjects: 1, totalValue: 'KES 1.8M', rating: 4.5 },
-  { id: 4, name: 'Coastal Hotels', type: 'Hospitality', email: 'operations@coastal.ke', phone: '+254 41 2315 000', location: 'Mombasa', activeProjects: 0, totalValue: 'KES 2.8M', rating: 4.9 },
-  { id: 5, name: 'Private Owner', type: 'Individual', email: 'owner@runda.ke', phone: '+254 722 555 666', location: 'Runda, Nairobi', activeProjects: 1, totalValue: 'KES 1.5M', rating: 5.0 },
-  { id: 6, name: 'East Africa Builders', type: 'Corporate', email: 'contracts@eabuilders.ke', phone: '+254 20 4000 150', location: 'Nairobi', activeProjects: 0, totalValue: 'KES 4.2M', rating: 4.7 },
-]
+import { Mail, Phone, MapPin } from 'lucide-react'
+import { CLIENTS } from '@/lib/mock-data'
 
 const getClientTypeColor = (type: string) => {
   const colors: Record<string, 'default' | 'secondary' | 'destructive' | 'outline'> = {

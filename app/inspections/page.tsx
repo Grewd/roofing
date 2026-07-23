@@ -2,19 +2,11 @@
 
 import DynamicSidebar from '@/components/dynamic-sidebar'
 import { RouteGuard } from '@/components/route-guard'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { CheckCircle, AlertCircle, Clock } from 'lucide-react'
-
-const INSPECTIONS = [
-  { id: 1, project: 'Karen Residential Complex', type: 'Material Inspection', date: '2024-05-10', inspector: 'Sarah Osei', status: 'Passed', score: 95, notes: 'All materials meet specifications' },
-  { id: 2, project: 'Westlands Office Building', type: 'Quality Control', date: '2024-05-08', inspector: 'James Otieno', status: 'Passed', score: 92, notes: 'Minor alignment adjustments noted' },
-  { id: 3, project: 'Kisumu Shopping Center', type: 'Pre-Installation', date: '2024-05-05', inspector: 'Mary Njoki', status: 'Passed', score: 98, notes: 'Roof structure verified and approved' },
-  { id: 4, project: 'Runda Villa Upgrade', type: 'Final Inspection', date: '2024-05-01', inspector: 'Paul Kipchoge', status: 'Passed', score: 96, notes: 'Project ready for handover' },
-  { id: 5, project: 'Karen Residential Complex', type: 'Safety Audit', date: '2024-04-28', inspector: 'Mary Njoki', status: 'In Progress', score: null, notes: 'Ongoing safety assessment' },
-  { id: 6, project: 'Westlands Office Building', type: 'Material Inspection', date: '2024-04-25', inspector: 'Sarah Osei', status: 'Passed', score: 91, notes: 'All tiles verified and certified' },
-]
+import { INSPECTIONS } from '@/lib/mock-data'
 
 const getStatusBadge = (status: string) => {
   const variants: Record<string, 'default' | 'secondary' | 'destructive' | 'outline'> = {

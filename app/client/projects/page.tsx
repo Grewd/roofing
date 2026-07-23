@@ -5,33 +5,7 @@ import { RouteGuard } from '@/components/route-guard'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { MapPin } from 'lucide-react'
-
-const CLIENT_PROJECTS = [
-  {
-    id: 1,
-    name: 'Karen Residential Complex - Phase 1',
-    location: 'Karen, Nairobi',
-    status: 'Ongoing',
-    progress: 65,
-    startDate: '2024-01-15',
-    endDate: '2024-08-30',
-    budget: 'KES 2.5M',
-    spent: 'KES 1.6M',
-    supervisor: 'Paul Kipchoge'
-  },
-  {
-    id: 2,
-    name: 'Karen Residential Complex - Phase 2',
-    location: 'Karen, Nairobi',
-    status: 'Pending',
-    progress: 0,
-    startDate: '2024-09-01',
-    endDate: '2024-12-31',
-    budget: 'KES 3.2M',
-    spent: 'KES 0',
-    supervisor: 'TBD'
-  },
-]
+import { CLIENT_PROJECT_DETAILS } from '@/lib/mock-data'
 
 export default function ClientProjectsPage() {
   return (
@@ -46,7 +20,7 @@ export default function ClientProjectsPage() {
           </div>
 
           <div className="space-y-4">
-            {CLIENT_PROJECTS.map((project) => (
+            {CLIENT_PROJECT_DETAILS.map((project) => (
               <Card key={project.id} className="hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6">
                   <div className="space-y-4">

@@ -5,53 +5,7 @@ import { RouteGuard } from '@/components/route-guard'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Calendar, MapPin, Users } from 'lucide-react'
-
-const SCHEDULES = [
-  {
-    id: 1,
-    date: '2024-05-16',
-    day: 'Thursday',
-    location: 'Karen, Nairobi',
-    project: 'Karen Residential Complex',
-    activity: 'Roof Installation - Block A',
-    team: ['James Otieno', 'Michael Mwangi', 'Joseph Kipchoge'],
-    time: '08:00 AM - 05:00 PM',
-    type: 'Installation'
-  },
-  {
-    id: 2,
-    date: '2024-05-17',
-    day: 'Friday',
-    location: 'Westlands, Nairobi',
-    project: 'Westlands Office Building',
-    activity: 'Site Safety Inspection',
-    team: ['Mary Njoki', 'Sarah Osei'],
-    time: '09:00 AM - 03:00 PM',
-    type: 'Inspection'
-  },
-  {
-    id: 3,
-    date: '2024-05-20',
-    day: 'Monday',
-    location: 'Karen, Nairobi',
-    project: 'Karen Residential Complex',
-    activity: 'Material Delivery & Inspection',
-    team: ['James Otieno', 'Michael Mwangi', 'Paul Kipchoge'],
-    time: '08:00 AM - 12:00 PM',
-    type: 'Delivery'
-  },
-  {
-    id: 4,
-    date: '2024-05-21',
-    day: 'Tuesday',
-    location: 'Karen, Nairobi',
-    project: 'Karen Residential Complex',
-    activity: 'Roof Installation - Block B',
-    team: ['James Otieno', 'Michael Mwangi', 'Joseph Kipchoge'],
-    time: '08:00 AM - 05:00 PM',
-    type: 'Installation'
-  },
-]
+import { SCHEDULES } from '@/lib/mock-data'
 
 const getActivityTypeColor = (type: string) => {
   const colors: Record<string, 'default' | 'secondary' | 'destructive' | 'outline'> = {

@@ -2,19 +2,11 @@
 
 import DynamicSidebar from '@/components/dynamic-sidebar'
 import { RouteGuard } from '@/components/route-guard'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import { Users, MapPin, DollarSign, Calendar } from 'lucide-react'
-
-const PROJECTS = [
-  { id: 1, name: 'Karen Residential Complex', location: 'Karen', status: 'Ongoing', progress: 65, startDate: '2024-01-15', endDate: '2024-08-30', value: 'KES 2.5M', client: 'Apex Developments', supervisor: 'Paul Kipchoge', material: 'Cambridge Shingles', scope: 'Complete roof replacement for 12-unit residential complex' },
-  { id: 2, name: 'Westlands Office Building', location: 'Westlands', status: 'Ongoing', progress: 45, startDate: '2024-02-20', endDate: '2024-09-15', value: 'KES 3.2M', client: 'Tech Hub Ltd', supervisor: 'Mary Njoki', material: 'Stone-Coated Tiles', scope: 'New commercial roofing installation and flashing system' },
-  { id: 3, name: 'Kisumu Shopping Center', location: 'Kisumu', status: 'Pending', progress: 15, startDate: '2024-05-01', endDate: '2024-11-30', value: 'KES 1.8M', client: 'Retail Group Kenya', supervisor: 'James Otieno', material: 'Stone-Coated Tiles', scope: 'Large-scale shopping center roof upgrade with waterproofing' },
-  { id: 4, name: 'Mombasa Hotel Renovation', location: 'Mombasa', status: 'Completed', progress: 100, startDate: '2023-11-01', endDate: '2024-04-30', value: 'KES 2.8M', client: 'Coastal Hotels', supervisor: 'Sarah Osei', material: 'Cambridge Shingles', scope: 'Complete hotel roof renovation with modern insulation' },
-  { id: 5, name: 'Runda Villa Upgrade', location: 'Runda', status: 'Ongoing', progress: 80, startDate: '2024-03-10', endDate: '2024-07-20', value: 'KES 1.5M', client: 'Private Owner', supervisor: 'Paul Kipchoge', material: 'Corrugated Sheets', scope: 'Residential villa roof upgrade and maintenance work' },
-  { id: 6, name: 'Nairobi Commercial Complex', location: 'Nairobi CBD', status: 'Pending', progress: 5, startDate: '2024-06-01', endDate: '2024-12-15', value: 'KES 4.5M', client: 'East Africa Builders', supervisor: 'David Okonkwo', material: 'Stone-Coated Tiles', scope: 'Multi-floor commercial building roof installation' },
-]
+import { Users, MapPin } from 'lucide-react'
+import { PROJECTS } from '@/lib/mock-data'
 
 const getStatusBadge = (status: string) => {
   const variants: Record<string, 'default' | 'secondary' | 'destructive' | 'outline'> = {

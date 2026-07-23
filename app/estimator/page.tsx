@@ -9,18 +9,7 @@ import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Slider } from '@/components/ui/slider'
 import { DollarSign } from 'lucide-react'
-
-const MATERIALS = [
-  { id: 'cambridge', name: 'Cambridge Shingles', pricePerSqm: 850 },
-  { id: 'stone-coated', name: 'Stone-Coated Tiles', pricePerSqm: 1200 },
-  { id: 'corrugated', name: 'Corrugated Sheets', pricePerSqm: 450 },
-]
-
-const PITCH_MULTIPLIERS: Record<string, number> = {
-  'low': 1.0,
-  'medium': 1.15,
-  'high': 1.35,
-}
+import { ESTIMATOR_MATERIALS, PITCH_MULTIPLIERS } from '@/lib/mock-data'
 
 export default function CostEstimatorPage() {
   const [area, setArea] = useState('')
@@ -28,7 +17,7 @@ export default function CostEstimatorPage() {
   const [pitch, setPitch] = useState('medium')
   const [labourPercentage, setLabourPercentage] = useState(25)
 
-  const selectedMaterial = MATERIALS.find(m => m.id === material)
+  const selectedMaterial = ESTIMATOR_MATERIALS.find(m => m.id === material)
   
   const roofArea = parseFloat(area) || 0
   const materialCost = roofArea * (selectedMaterial?.pricePerSqm || 0) * (PITCH_MULTIPLIERS[pitch] || 1)
@@ -77,7 +66,7 @@ export default function CostEstimatorPage() {
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      {MATERIALS.map(m => (
+                      {ESTIMATOR_MATERIALS.map(m => (
                         <SelectItem key={m.id} value={m.id}>
                           {m.name} - KES {m.pricePerSqm}/m²
                         </SelectItem>

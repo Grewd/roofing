@@ -5,12 +5,7 @@ import { RouteGuard } from '@/components/route-guard'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Mail, Phone, MessageSquare } from 'lucide-react'
-
-const SUPPORT_TICKETS = [
-  { id: 1, subject: 'Roof Inspection Query', status: 'Resolved', date: '2024-05-10', response: '2 hours' },
-  { id: 2, subject: 'Invoice Clarification', status: 'In Progress', date: '2024-05-12', response: 'Awaiting reply' },
-  { id: 3, subject: 'Project Timeline Update', status: 'Resolved', date: '2024-05-08', response: '4 hours' },
-]
+import { SUPPORT_TICKETS } from '@/lib/mock-data'
 
 export default function ClientSupportPage() {
   return (

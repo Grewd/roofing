@@ -5,36 +5,7 @@ import { RouteGuard } from '@/components/route-guard'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Download, Eye } from 'lucide-react'
-
-const INVOICES = [
-  {
-    id: 'INV-001',
-    project: 'Karen Residential Complex - Phase 1',
-    amount: 'KES 1,600,000',
-    date: '2024-05-10',
-    dueDate: '2024-06-10',
-    status: 'Paid',
-    description: 'Roofing materials and installation labor - 50% payment'
-  },
-  {
-    id: 'INV-002',
-    project: 'Karen Residential Complex - Phase 1',
-    amount: 'KES 900,000',
-    date: '2024-04-10',
-    dueDate: '2024-05-10',
-    status: 'Paid',
-    description: 'Initial deposit for materials procurement'
-  },
-  {
-    id: 'INV-003',
-    project: 'Karen Residential Complex - Phase 2',
-    amount: 'KES 3,200,000',
-    date: '2024-08-01',
-    dueDate: '2024-09-01',
-    status: 'Pending',
-    description: 'Phase 2 project estimate and quotation'
-  },
-]
+import { INVOICES } from '@/lib/mock-data'
 
 export default function ClientInvoicesPage() {
   return (

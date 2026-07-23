@@ -5,45 +5,15 @@ import { RouteGuard } from '@/components/route-guard'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import { Alert, AlertDescription } from '@/components/ui/alert'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import { TrendingUp, AlertTriangle, Users, Briefcase, DollarSign, Star } from 'lucide-react'
+import { PROJECTS, STAFF_ON_SITE, LOW_STOCK_ITEMS, REVENUE_DATA } from '@/lib/mock-data'
 
 const DASHBOARD_STATS = [
-  { label: 'Total Projects', value: '24', icon: Briefcase, color: 'text-primary' },
-  { label: 'Active Jobs', value: '8', icon: TrendingUp, color: 'text-orange-500' },
+  { label: 'Total Projects', value: String(PROJECTS.length), icon: Briefcase, color: 'text-primary' },
+  { label: 'Active Jobs', value: String(PROJECTS.filter(p => p.status === 'Ongoing').length), icon: TrendingUp, color: 'text-orange-500' },
   { label: 'Revenue (KES)', value: '4.2M', icon: DollarSign, color: 'text-green-600' },
   { label: 'Client Rating', value: '4.8/5', icon: Star, color: 'text-yellow-500' },
-]
-
-const ACTIVE_PROJECTS = [
-  { id: 1, name: 'Karen Residential Complex', location: 'Karen', status: 'Ongoing', progress: 65, client: 'Apex Developments' },
-  { id: 2, name: 'Westlands Office Building', location: 'Westlands', status: 'Ongoing', progress: 45, client: 'Tech Hub Ltd' },
-  { id: 3, name: 'Kisumu Shopping Center', location: 'Kisumu', status: 'Pending', progress: 15, client: 'Retail Group Kenya' },
-  { id: 4, name: 'Mombasa Hotel Renovation', location: 'Mombasa', status: 'Completed', progress: 100, client: 'Coastal Hotels' },
-  { id: 5, name: 'Runda Villa Upgrade', location: 'Runda', status: 'Ongoing', progress: 80, client: 'Private Owner' },
-]
-
-const STAFF_ON_SITE = [
-  { id: 1, name: 'Paul Kipchoge', role: 'Site Supervisor', location: 'Karen' },
-  { id: 2, name: 'Mary Njoki', role: 'Safety Officer', location: 'Westlands' },
-  { id: 3, name: 'James Otieno', role: 'Lead Technician', location: 'Kisumu' },
-  { id: 4, name: 'Sarah Osei', role: 'Quality Inspector', location: 'Mombasa' },
-]
-
-const LOW_STOCK_ITEMS = [
-  { name: 'Cambridge Shingles', stock: 12, unit: 'bundles', threshold: 20 },
-  { name: 'Stone-Coated Tiles', stock: 8, unit: 'boxes', threshold: 15 },
-  { name: 'Corrugated Sheets', stock: 5, unit: 'pieces', threshold: 10 },
-]
-
-const REVENUE_DATA = [
-  { month: 'Jan', revenue: 450 },
-  { month: 'Feb', revenue: 620 },
-  { month: 'Mar', revenue: 580 },
-  { month: 'Apr', revenue: 890 },
-  { month: 'May', revenue: 750 },
-  { month: 'Jun', revenue: 1100 },
 ]
 
 const getStatusBadge = (status: string) => {
@@ -102,7 +72,7 @@ export default function Dashboard() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  {ACTIVE_PROJECTS.map((project) => (
+                  {PROJECTS.map((project) => (
                     <div key={project.id} className="border-b border-border pb-4 last:border-0 last:pb-0">
                       <div className="flex items-start justify-between mb-2">
                         <div>
